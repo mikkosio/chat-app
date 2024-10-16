@@ -7,11 +7,12 @@ const port = process.env.PORT || 3000;
 app.use(express.static("public"));
 
 io.on("connection", client => {
-    client.on("event", data => {
-        console.log(data);
+    client.on("message", msg => {
+        console.log(msg);
     })
+    
     client.on("disconnect", () => {
-        console.log(`${client} has left.`);
+        console.log(`${client.id} has left.`);
     })
 })
 

@@ -1,0 +1,11 @@
+body {
+    background-color: #131313;
+}
+
+#input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: large;
+}
