@@ -8,7 +8,8 @@ app.use(express.static("public"));
 
 io.on("connection", client => {
     client.on("message", msg => {
-        console.log(msg);
+        console.log(`${client.id} says ${msg}`);
+        io.emit("message", client.id, msg)
     })
     
     client.on("disconnect", () => {
