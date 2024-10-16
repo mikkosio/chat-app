@@ -9,12 +9,32 @@ button.addEventListener("click", () => {
     
     if (message) {
         socket.emit("message", message);
+        inputBox.value = "";
     }
 })
 
 socket.on("message", (client, msg) => {
-    const item = document.createElement("li");
-    item.textContent = `${client}: ${msg}`;
+    const date = new Date()
 
-    chatBox.appendChild(item);
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = date.getFullYear();
+    let hours = date.getHours();
+    const minutes = String(date.getMinutes()).padStart(2, "0");
+    const period = hours >= 12 ? "PM" : "AM";
+    hours = hours % 12 || 12;
+
+    const timestamp = `${day}/${month}/${year} ${hours}:${minutes} ${period}`;
+
+    const messageItem = document.createElement("li");
+    messageItem.innerHTML = `
+        <div class="message">
+            <span class="username">${client}</span>
+            <span class="message-timestamp">${timestamp}</span>
+
+            <div>${msg}</div>
+        </div>
+    `
+
+    chatBox.appendChild(messageItem);
 })

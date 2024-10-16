@@ -1,4 +1,4 @@
-body {
+/* body {
     background-color: #131313;
 }
 
@@ -8,4 +8,18 @@ body {
     outline: none;
     color: white;
     font-size: large;
+} */
+
+#chat-box {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.message {
+    margin-bottom: 15px;
+}
+
+.username {
+    font-weight: bold;
 }
