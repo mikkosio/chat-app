@@ -42,5 +42,5 @@ socket.on("message", (client, msg) => {
         </div>
     `
 
-    chatBox.appendChild(messageItem);
+    chatBox.prepend(messageItem);
 })
