@@ -4,12 +4,18 @@ const button = document.getElementById("send-btn");
 const inputBox = document.getElementById("input");
 const chatBox = document.getElementById("chat-box")
 
-button.addEventListener("click", () => {
+function sendMessage() {
     const message = inputBox.value;
-    
+
     if (message) {
         socket.emit("message", message);
         inputBox.value = "";
+    }
+}
+button.addEventListener("click", sendMessage)
+inputBox.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        sendMessage();
     }
 })
 
