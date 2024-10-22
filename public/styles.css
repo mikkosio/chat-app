@@ -25,12 +25,19 @@ html, body {
 
 #username {
     height: 40px;
-    margin-bottom: 10px;
     font-size: large;
+    margin-bottom: 2px;
+}
+
+#error-msg {
+    display: none;
+    color: red;
+    margin: 0;
 }
 
 #join-btn {
     font-size: large;
+    margin-top: 10px;
 }
 
 
